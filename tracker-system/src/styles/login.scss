@@ -1,0 +1,111 @@
+@import "./variables.scss";
+
+.login {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .login .left-navigation {
+    background-color: #1d262d;
+    height: 100%;
+    flex: 0.45;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .login .icon {
+    height: 56px;
+    width: 350px;
+    margin-top: 10%;
+  }
+  
+  .login .undraw-sorting {
+    height: 260px;
+    width: 488px;
+  }
+  
+  .login .mat-btn {
+    background-color: #28343e;
+    border-radius: 4px;
+    height: 52px;
+    overflow: hidden;
+    width: 95%;
+    margin-bottom: 2.5%;
+  }
+  
+  .login .content {
+    align-items: center;
+    display: inline-flex;
+    gap: 8px;
+    height: 52px;
+    left: 16px;
+    padding: 11px 0px;
+    position: relative;
+  }
+  
+  .login .translate-white {
+    height: 24px;
+    position: relative;
+    width: 24px;
+  }
+  
+  .login .text-2 {
+    color: #ffffff;
+    font-family: $fontFamilyButton;
+    font-size: $fontSizeButton;
+    font-style: $fontStyleButton;
+    font-weight: $fontWeightButton;
+    letter-spacing: $letterSpacingButton;
+    line-height: $lineHeightButton;
+    margin-bottom: -2px;
+    margin-top: -4px;
+    position: relative;
+    text-align: center;
+    white-space: nowrap;
+    width: fit-content;
+  }
+
+
+  .login .group {
+    height: 100%;
+    flex: 0.55;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .login .heading-project {
+    color: #1d262d;
+    font-family: $fontFamilyH4;
+    font-size: $fontSizeH4;
+    font-style: $fontStyleH4;
+    font-weight: $fontWeightH4;
+    letter-spacing: $letterSpacingH4;
+    line-height: $lineHeightH4;
+    white-space: nowrap;
+    margin: 10%;
+  }
+  
+  .login .button-view-insights {
+    //all: unset;
+    box-sizing: border-box;
+    height: 10%;
+    width: 50%;
+    background-color: #1d262d;
+    border-radius: 10px;
+  }
+  
+  .login .text {
+    color: #ffffff;
+    font-family: $fontFamilyButton;
+    font-size: $fontSizeButton;
+    font-style: $fontStyleButton;
+    font-weight: $fontWeightButton;
+    letter-spacing: $letterSpacingButton;
+    line-height: $lineHeightButton;
+    text-align: center;
+  }

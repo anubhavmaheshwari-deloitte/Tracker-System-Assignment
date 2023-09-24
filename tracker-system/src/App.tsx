@@ -1,26 +1,46 @@
-import React from "react";
-import logo from "./logo.svg";
+import React, { useEffect } from "react";
+import { Redirect, Route, useHistory } from "react-router-dom";
+import {
+  Security,
+  SecureRoute,
+  LoginCallback,
+  useOktaAuth,
+} from "@okta/okta-react";
+import { OktaAuth, toRelativeUrl } from "@okta/okta-auth-js";
+import Login from "./pages/Login";
+import Home from "./pages/Home";
+import config from "./config";
+import Profile from "./Profile";
 import "./App.css";
 
-function App(): JSX.Element {
+const LoginOrHome: React.FC = (props: any) => {
+  const { oktaAuth, authState } = useOktaAuth();
+  console.log(authState);
+  if (!authState) return <div>Loading ...</div>;
+  else if (!authState?.isAuthenticated) {
+    return <Redirect to="/login" />;
+  } else return <Redirect to="/home" />;
+};
+
+const oktaAuth = new OktaAuth(config.oidc);
+const App: React.FC = () => {
+  const history = useHistory();
+  const restoreOriginalUri = async (
+    _oktaAuth: OktaAuth,
+    originalUri: string | undefined,
+  ) => {
+    history.replace(toRelativeUrl(originalUri || "/", window.location.origin));
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Security oktaAuth={oktaAuth} restoreOriginalUri={restoreOriginalUri}>
+      <Route path="/login" component={Login} />
+      <Route path="/login/callback" component={LoginCallback} />
+      <SecureRoute path="/home" component={Home} />
+      <SecureRoute path="/profile" component={Profile} />
+      <Route exact path="/" component={LoginOrHome}></Route>
+    </Security>
   );
-}
+};
 
 export default App;
