@@ -1,11 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { useOktaAuth, withOktaAuth } from "@okta/okta-react";
-import "./../App.css";
-import logo from "./../logo.svg";
+import "./../styles/home.scss";
+import windowDimensions from "../utils/windowDimensions";
+import SideNav from "../components/SideNav";
+import HomePageHeader from "../components/HomePageHeader";
+import HomeContent from "../components/HomeContent";
+import { tabs } from "../utils/constants";
+
 
 const Home: React.FC = () => {
   const { oktaAuth, authState } = useOktaAuth();
-
+  const [selectedTab, setSelectedTab] = useState<number>(tabs.PROJECT_BOARD);
+  
   const login = async () => {
     await oktaAuth.signInWithRedirect();
   };
@@ -14,39 +20,39 @@ const Home: React.FC = () => {
     await oktaAuth.signOut();
   };
 
-  let body = null;
-  if (authState?.isAuthenticated) {
-    body = (
-      <div className="Buttons">
-        <button onClick={logout}>Logout</button>
-        {/* Replace me with your root component. */}
-      </div>
-    );
-  } else {
-    body = (
-      <div className="Buttons">
-        <button onClick={login}>Login</button>
-      </div>
-    );
-  }
+  // let body = null;
+  // if (authState?.isAuthenticated) {
+  //   body = (
+  //     <div className="Buttons">
+  //       <button onClick={logout}>Logout</button>
+  //     </div>
+  //   );
+  // } else {
+  //   body = (
+  //     <div className="Buttons">
+  //       <button onClick={login}>Login</button>
+  //     </div>
+  //   );
+  // }
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/Home.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        {body}
-      </header>
+    <div
+      className="home"
+      style={{
+        width: windowDimensions().innerWidth,
+        height: windowDimensions().innerHeight,
+      }}
+    >
+      <SideNav
+        selectedTab={selectedTab}
+        changeTab={(tab: number) => {
+          setSelectedTab(tab);
+        }}
+      />
+      <div className="mainContent">
+        <HomePageHeader selectedTab={selectedTab}/>
+        <HomeContent selectedTab={selectedTab} />
+      </div>
     </div>
   );
 };

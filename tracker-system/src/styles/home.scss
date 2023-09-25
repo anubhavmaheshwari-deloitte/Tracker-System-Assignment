@@ -1,0 +1,13 @@
+@import "./variables.scss";
+
+.home {
+    display: flex;
+    flex-direction: row;
+}
+
+.mainContent {
+    width: 80%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}

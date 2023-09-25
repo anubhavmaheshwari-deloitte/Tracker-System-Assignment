@@ -2,7 +2,6 @@ import React from "react";
 import windowDimensions from "../utils/windowDimensions";
 import "./../styles/login.scss";
 import { useOktaAuth } from "@okta/okta-react";
-import { Link } from "react-router-dom";
 
 const Login: React.FC = () => {
   const { oktaAuth, authState } = useOktaAuth();

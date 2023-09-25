@@ -1,0 +1,124 @@
+@import "./../variables.scss";
+
+.sideNavigation {
+    background-color: $secondaryColor;
+    width: 20%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.sideNavigation .icon {
+    margin: 20% 0%;
+    height: 5%;
+    width: 70%;
+}
+
+.sideNavigation .sideNavButtonGroup {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 64%;
+    width: 90%;
+}
+
+.sideNavigation .contentWrapperSelected {
+    background-color: $secondaryColorFadedPressed;
+    border: 0;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: 10%;
+    margin: 2% 0%;
+    overflow: hidden;
+    padding: 0;
+}
+
+.sideNavigation .contentWrapper {
+    background-color: $secondaryColorFaded;
+    border: 0;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: 10%;
+    margin: 2% 0%;
+    overflow: hidden;
+    padding: 0;
+}
+
+.sideNavigation .rectangleSelected {
+    background-color: $primaryColor;
+    border-radius: 4px 0px 0px 4px;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 2%;
+}
+
+.sideNavigation .rectangle {
+    border-radius: 4px 0px 0px 4px;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 2%;
+}
+
+.sideNavigation .content {
+    display: inline-flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 98%;
+    height: 100%;
+    padding: 0% 5%;
+    gap: 8px;
+}
+  
+.sideNavigation .textSelected {
+    color: $primaryColor;
+    font-family: $fontFamilyButton;
+    font-size: $fontSizeButton;
+    font-style: $fontStyleButton;
+    font-weight: $fontWeightButton;
+    letter-spacing: $letterSpacingButton;
+    line-height: $lineHeightButton;
+    text-align: center;
+    white-space: nowrap;
+    width: fit-content;
+}
+  
+.sideNavigation .text {
+    color: $whiteColor;
+    font-family: $fontFamilyButton;
+    font-size: $fontSizeButton;
+    font-style: $fontStyleButton;
+    font-weight: $fontWeightButton;
+    letter-spacing: $letterSpacingButton;
+    line-height: $lineHeightButton;
+    text-align: center;
+    white-space: nowrap;
+    width: fit-content;
+}
+  
+.sideNavigation .mat-btn {
+    background-color: $secondaryColorFaded;
+    border-radius: 4px;
+    border: 0;
+    height: 6%;
+    overflow: hidden;
+    width: 90%;
+    margin-bottom: 5%;
+}
+
+.sideNavigation .translate-white {
+    height: 24px;
+    width: 24px;
+}

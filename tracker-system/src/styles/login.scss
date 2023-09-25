@@ -1,43 +1,44 @@
 @import "./variables.scss";
 
 .login {
-    background-color: #ffffff;
+    background-color: $whiteColor;
     display: flex;
     flex-direction: row;
     justify-content: center;
     width: 100%;
-  }
+}
 
-  .login .left-navigation {
-    background-color: #1d262d;
+.login .left-navigation {
+    background-color: $secondaryColor;
     height: 100%;
     flex: 0.45;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-  }
-  .login .icon {
+}
+
+.login .icon {
     height: 56px;
     width: 350px;
     margin-top: 10%;
-  }
+}
   
-  .login .undraw-sorting {
+.login .undraw-sorting {
     height: 260px;
     width: 488px;
-  }
+}
   
-  .login .mat-btn {
-    background-color: #28343e;
+.login .mat-btn {
+    background-color: $secondaryColorFaded;
     border-radius: 4px;
     height: 52px;
     overflow: hidden;
     width: 95%;
     margin-bottom: 2.5%;
-  }
+}
   
-  .login .content {
+.login .content {
     align-items: center;
     display: inline-flex;
     gap: 8px;
@@ -45,16 +46,16 @@
     left: 16px;
     padding: 11px 0px;
     position: relative;
-  }
+}
   
-  .login .translate-white {
+.login .translate-white {
     height: 24px;
     position: relative;
     width: 24px;
-  }
+}
   
-  .login .text-2 {
-    color: #ffffff;
+.login .text-2 {
+    color: $whiteColor;
     font-family: $fontFamilyButton;
     font-size: $fontSizeButton;
     font-style: $fontStyleButton;
@@ -67,19 +68,20 @@
     text-align: center;
     white-space: nowrap;
     width: fit-content;
-  }
+}
 
 
-  .login .group {
+.login .group {
     height: 100%;
     flex: 0.55;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-  }
-  .login .heading-project {
-    color: #1d262d;
+}
+
+.login .heading-project {
+    color: $secondaryColor;
     font-family: $fontFamilyH4;
     font-size: $fontSizeH4;
     font-style: $fontStyleH4;
@@ -88,19 +90,18 @@
     line-height: $lineHeightH4;
     white-space: nowrap;
     margin: 10%;
-  }
+}
   
-  .login .button-view-insights {
-    //all: unset;
+.login .button-view-insights {
     box-sizing: border-box;
     height: 10%;
     width: 50%;
-    background-color: #1d262d;
+    background-color: $secondaryColor;
     border-radius: 10px;
-  }
+}
   
-  .login .text {
-    color: #ffffff;
+.login .text {
+    color: $whiteColor;
     font-family: $fontFamilyButton;
     font-size: $fontSizeButton;
     font-style: $fontStyleButton;
@@ -108,4 +109,4 @@
     letter-spacing: $letterSpacingButton;
     line-height: $lineHeightButton;
     text-align: center;
-  }
+}

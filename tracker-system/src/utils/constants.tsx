@@ -1,0 +1,1 @@
+export const tabs = { PROJECT_BOARD: 0, CREATE_ISSUES: 1, CREATE_PROJECT: 2 };
