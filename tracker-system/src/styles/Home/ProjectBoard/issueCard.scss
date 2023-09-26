@@ -1,0 +1,25 @@
+@import "./../../variables.scss";
+
+.issueCard:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border: 1px solid $primaryColor;
+}
+.issueCardHeader {
+    display: flex;
+    justify-content: space-between;
+}
+
+.issueCardFooter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.issueCardFooter .issueCardAssignee {
+    justify-self: start;
+    width: 60%;
+}
+.issueCardFooter .issueCardPriority {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}

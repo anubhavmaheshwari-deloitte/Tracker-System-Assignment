@@ -3,6 +3,7 @@
 .home {
     display: flex;
     flex-direction: row;
+    cursor: default;
 }
 
 .mainContent {
@@ -10,4 +11,5 @@
     height: 100%;
     display: flex;
     flex-direction: column;
+    overflow-y:auto;
 }

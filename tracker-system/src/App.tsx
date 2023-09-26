@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Redirect, Route, useHistory } from "react-router-dom";
+import { Redirect, Route, Switch, useHistory } from "react-router-dom";
 import {
   Security,
   SecureRoute,
@@ -34,11 +34,16 @@ const App: React.FC = () => {
 
   return (
     <Security oktaAuth={oktaAuth} restoreOriginalUri={restoreOriginalUri}>
-      <Route path="/login" component={Login} />
-      <Route path="/login/callback" component={LoginCallback} />
-      <SecureRoute path="/home" component={Home} />
-      <SecureRoute path="/profile" component={Profile} />
-      <Route exact path="/" component={LoginOrHome}></Route>
+      <Switch>
+        <Route exact path="/login" component={Login} />
+        <Route exact path="/login/callback" component={LoginCallback} />
+        <SecureRoute exact path="/home" component={Home} />
+        <SecureRoute exact path="/profile" component={Profile} />
+        <Route exact path="/" component={LoginOrHome}></Route>
+        <Route path="*">
+          <div>ERROR 404 !!!</div>
+        </Route>
+      </Switch>
     </Security>
   );
 };

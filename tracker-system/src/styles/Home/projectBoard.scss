@@ -1,0 +1,127 @@
+@import "./../variables.scss";
+
+.projectBoardContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+};
+
+.projectBoardContainer .headingBox {
+    margin: 4% 3% 0%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+};
+
+.projectBoardContainer .headingBox .projectHeading {
+    color: $secondaryColor;
+    font-family: $fontFamilyH4;
+    font-size: $fontSizeH4;
+    font-style: $fontStyleH4;
+    font-weight: $fontWeightH4;
+    letter-spacing: $letterSpacingH4;
+    line-height: $lineHeightH4;
+};
+
+.projectBoardContainer .headingBox .viewInsightsButton{
+    background-color: $secondaryColor;
+    border-color: $secondaryColor;
+    font-family: $fontFamilyButton;
+    font-size: $fontSizeButton;
+    font-style: $fontStyleButton;
+    font-weight: $fontWeightButton;
+    letter-spacing: $letterSpacingButton;
+    line-height: $lineHeightButton;
+}
+
+.projectBoardContainer .headingBox .viewInsightsButton:hover{
+    background-color: rgba($secondaryColor, 0.9);
+}
+
+.projectBoardContainer .projectDetailsBox {
+    margin: 2% 3% 0%;
+}
+
+.projectBoardContainer .projectDetailsBox .selectOptionsWrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.projectBoardContainer .projectDetailsBox .selectOptionsWrapper .form-group {
+    width: 48%;
+}
+
+.projectBoardContainer .projectDetailsBox .selectOptionsWrapper .form-group .form-control {
+    height: 80%;
+    border-bottom: 1px solid;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.projectBoardContainer .projectDetailsBox .projectTimeline {
+    margin: 1.5% 0%;
+    color: $disabledTextColor;
+    font-family: $fontFamilyBody;
+    font-size: $fontSizeBody;
+    font-style: $fontStyleBody;
+    font-weight: $fontWeightBody;
+    letter-spacing: $letterSpacingBody;
+    line-height: $lineHeightBody;
+}
+
+.projectBoardContainer .projectDetailsBox .filterIssuesDropdown {
+    width: 48%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.projectBoardContainer .projectDetailsBox .filterIssuesDropdown .form-group {
+    width: 48%;
+    //background-color: red;
+}
+
+.projectBoardContainer .projectDetailsBox .filterIssuesDropdown .form-group .form-control, .filterIssuesDropdown .form-control:hover {
+    border: 0;
+    border-bottom: 1px solid $blackColor;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    background-color: inherit;
+    text-align: left;
+    color: $blackColor;
+}
+// .projectBoardContainer .projectDetailsBox .filterIssuesDropdown .form-group .form-control:hover {
+//     border: 0;
+//     border-bottom: 1px solid $blackColor;
+//     border-bottom-left-radius: 0;
+//     border-bottom-right-radius: 0;
+//     background-color: inherit;
+//     text-align: left;
+    
+// }
+
+.projectBoardContainer .issueContainer {
+    padding: 1% 3%;
+    background-color: $headerBackgroundColor;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+
+.projectBoardContainer .issueContainer .issueStatusBlock{
+    width: 23%;
+}
+
+.projectBoardContainer .issueContainer .issueStatusBlock .issueStatusHeading{
+    color: $issueHeadingColor;
+    font-family: $fontFamilyH6;
+    font-size: $fontSizeH6;
+    font-style: $fontStyleH6;
+    font-weight: $fontWeightH6;
+    letter-spacing: $letterSpacingH6;
+    line-height: $lineHeightH6;
+    margin: 5% 0%;
+}

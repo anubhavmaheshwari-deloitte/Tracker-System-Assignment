@@ -1,13 +1,11 @@
 import React from "react";
 import "./../styles/Home/sideNav.scss";
 import { tabs } from "../utils/constants";
-const SideNav = ({
-  selectedTab,
-  changeTab,
-}: {
-  selectedTab: number;
-  changeTab: any;
-}) => {
+import { useAppDispatch, useAppSelector } from "../redux/hooks";
+import { changeTab } from "../redux/storeSlices/tabSlice";
+const SideNav = () => {
+  const selectedTab = useAppSelector((state) => state.tabs);
+  const dispatch = useAppDispatch();
   return (
     <div className="sideNavigation">
       <img
@@ -18,45 +16,75 @@ const SideNav = ({
       <div className="sideNavButtonGroup">
         <button
           className={
-            selectedTab === tabs.PROJECT_BOARD ? "contentWrapperSelected" : "contentWrapper"
+            selectedTab === tabs.PROJECT_BOARD
+              ? "contentWrapperSelected"
+              : "contentWrapper"
           }
-          onClick={() => changeTab(tabs.PROJECT_BOARD)}
+          onClick={() => dispatch(changeTab(tabs.PROJECT_BOARD))}
         >
           <div
-            className={selectedTab === tabs.PROJECT_BOARD ? "rectangleSelected" : "rectangle"}
+            className={
+              selectedTab === tabs.PROJECT_BOARD
+                ? "rectangleSelected"
+                : "rectangle"
+            }
           />
           <div className="content">
-            <div className={selectedTab === tabs.PROJECT_BOARD ? "textSelected" : "text"}>
+            <div
+              className={
+                selectedTab === tabs.PROJECT_BOARD ? "textSelected" : "text"
+              }
+            >
               PROJECT BOARD
             </div>
           </div>
         </button>
         <button
           className={
-            selectedTab === tabs.CREATE_ISSUES ? "contentWrapperSelected" : "contentWrapper"
+            selectedTab === tabs.CREATE_ISSUES
+              ? "contentWrapperSelected"
+              : "contentWrapper"
           }
-          onClick={() => changeTab(tabs.CREATE_ISSUES)}
+          onClick={() => dispatch(changeTab(tabs.CREATE_ISSUES))}
         >
           <div
-            className={selectedTab === tabs.CREATE_ISSUES ? "rectangleSelected" : "rectangle"}
+            className={
+              selectedTab === tabs.CREATE_ISSUES
+                ? "rectangleSelected"
+                : "rectangle"
+            }
           />
           <div className="content">
-            <div className={selectedTab === tabs.CREATE_ISSUES ? "textSelected" : "text"}>
+            <div
+              className={
+                selectedTab === tabs.CREATE_ISSUES ? "textSelected" : "text"
+              }
+            >
               CREATE ISSUES
             </div>
           </div>
         </button>
         <button
           className={
-            selectedTab === tabs.CREATE_PROJECT ? "contentWrapperSelected" : "contentWrapper"
+            selectedTab === tabs.CREATE_PROJECT
+              ? "contentWrapperSelected"
+              : "contentWrapper"
           }
-          onClick={() => changeTab(tabs.CREATE_PROJECT)}
+          onClick={() => dispatch(changeTab(tabs.CREATE_PROJECT))}
         >
           <div
-            className={selectedTab === tabs.CREATE_PROJECT ? "rectangleSelected" : "rectangle"}
+            className={
+              selectedTab === tabs.CREATE_PROJECT
+                ? "rectangleSelected"
+                : "rectangle"
+            }
           />
           <div className="content">
-            <div className={selectedTab === tabs.CREATE_PROJECT ? "textSelected" : "text"}>
+            <div
+              className={
+                selectedTab === tabs.CREATE_PROJECT ? "textSelected" : "text"
+              }
+            >
               CREATE PROJECT
             </div>
           </div>

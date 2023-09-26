@@ -5,20 +5,18 @@ import windowDimensions from "../utils/windowDimensions";
 import SideNav from "../components/SideNav";
 import HomePageHeader from "../components/HomePageHeader";
 import HomeContent from "../components/HomeContent";
-import { tabs } from "../utils/constants";
 
 
 const Home: React.FC = () => {
-  const { oktaAuth, authState } = useOktaAuth();
-  const [selectedTab, setSelectedTab] = useState<number>(tabs.PROJECT_BOARD);
-  
-  const login = async () => {
-    await oktaAuth.signInWithRedirect();
-  };
+  //const { oktaAuth, authState } = useOktaAuth();
 
-  const logout = async () => {
-    await oktaAuth.signOut();
-  };
+  // const login = async () => {
+  //   await oktaAuth.signInWithRedirect();
+  // };
+
+  // const logout = async () => {
+  //   await oktaAuth.signOut();
+  // };
 
   // let body = null;
   // if (authState?.isAuthenticated) {
@@ -43,15 +41,10 @@ const Home: React.FC = () => {
         height: windowDimensions().innerHeight,
       }}
     >
-      <SideNav
-        selectedTab={selectedTab}
-        changeTab={(tab: number) => {
-          setSelectedTab(tab);
-        }}
-      />
+      <SideNav />
       <div className="mainContent">
-        <HomePageHeader selectedTab={selectedTab}/>
-        <HomeContent selectedTab={selectedTab} />
+        <HomePageHeader />
+        <HomeContent />
       </div>
     </div>
   );

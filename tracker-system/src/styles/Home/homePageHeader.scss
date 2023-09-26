@@ -16,7 +16,7 @@
 .searchBarWrapper {
     border-right: 2px solid;
     border-color: rgba($blackColor,0.2);
-    width: 82%;
+    width: 80%;
     height: 100%;
     display: flex;
     flex-direction: row;
@@ -34,7 +34,7 @@
 }
 
 .profile {
-    width: 18%;
+    width: 20%;
     height: 100%;
     margin-top: 1%;
     padding: 0;
@@ -70,7 +70,7 @@
 .profile .profileIcon {
     border-radius: 25px;
     height: 100%;
-    width: 22%;
+    width: 20%;
 }
 
 .profile .dropdownListItem {

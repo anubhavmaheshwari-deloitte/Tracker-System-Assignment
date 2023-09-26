@@ -1,15 +1,25 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import { useOktaAuth } from "@okta/okta-react";
 import DropDown from "@clayui/drop-down";
 import { tabs } from "../utils/constants";
 import "./../styles/Home/homePageHeader.scss";
+import { useAppSelector } from "../redux/hooks";
 
-const HomePageHeader = ({ selectedTab }: { selectedTab: number }) => {
-  const { oktaAuth } = useOktaAuth();
+const HomePageHeader = () => {
+  const selectedTab = useAppSelector(state => state.tabs);
+  const { authState, oktaAuth } = useOktaAuth();
   const logout = async () => {
     await oktaAuth.signOut();
   };
-
+  const [userInfo, setUserInfo] = useState<Record<string, any> | null>(null);
+  useEffect(() => {
+    if (!authState || !authState.isAuthenticated || !authState.idToken) {
+      setUserInfo(null);
+    } else {
+      setUserInfo(authState.idToken.claims);
+    }
+  }, [authState, oktaAuth]);
+  
   return (
     <header className="header">
       {selectedTab === tabs.PROJECT_BOARD ? (
@@ -27,7 +37,7 @@ const HomePageHeader = ({ selectedTab }: { selectedTab: number }) => {
           alignmentPosition={3}
           trigger={
             <button className="profileButton">
-              <div className="text">Anjali Gupta</div>
+              <div className="text">{!userInfo ? "Anjali Gupta" : Object.entries(userInfo)[1][1]}</div>
               <img
                 className="profileIcon"
                 src={require("./../assets/Home/Profile picture.png")}
