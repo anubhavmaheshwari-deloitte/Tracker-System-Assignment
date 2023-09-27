@@ -13,6 +13,8 @@ import config from "./config";
 import Profile from "./Profile";
 import "./App.css";
 
+import "bootstrap/dist/css/bootstrap.min.css";
+
 const LoginOrHome: React.FC = (props: any) => {
   const { oktaAuth, authState } = useOktaAuth();
   console.log(authState);

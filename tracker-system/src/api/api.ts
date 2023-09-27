@@ -8,9 +8,14 @@ const headers = {
 const headers1 = {
   userID: "A01",
 };
-
+interface projectData {
+  projectName: string;
+  projectOwner: number;
+  projectStartDate: string;
+  projectEndDate: string;
+}
 export const getAllUsers = createAsyncThunk(
-  "users",
+  "users/fetchUsers",
   async (
     { teamName, userID }: { teamName?: string | null; userID?: number | null },
     thunkAPI,
@@ -31,7 +36,7 @@ export const getAllUsers = createAsyncThunk(
 );
 
 export const getIssues = createAsyncThunk(
-  "issues",
+  "issues/fetchIssues",
   async (
     {
       projectID,
@@ -61,11 +66,24 @@ export const getIssues = createAsyncThunk(
 );
 
 export const getAllProjects = createAsyncThunk(
-  "projects",
+  "projects/fetchProjects",
   async (arg, thunkAPI) => {
     try {
       return await axios
         .get(baseUrl + "/project", { headers })
+        .then((res) => res.data);
+    } catch (error: any) {
+      return thunkAPI.rejectWithValue({ error });
+    }
+  },
+);
+
+export const createProject = createAsyncThunk(
+  "projects/postProject",
+  async ({data} : {data: projectData}, thunkAPI) => {
+    try {
+      return await axios
+        .post(baseUrl + "/project", data, { headers })
         .then((res) => res.data);
     } catch (error: any) {
       return thunkAPI.rejectWithValue({ error });

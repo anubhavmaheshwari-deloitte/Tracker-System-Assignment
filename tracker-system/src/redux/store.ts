@@ -3,6 +3,7 @@ import projectReducer from "./storeSlices/projectSlice";
 import tabReducer from "./storeSlices/tabSlice";
 import issueReducer from "./storeSlices/issuesSlice";
 import userReducer from "./storeSlices/usersSlice";
+import createProjectReducer from "./storeSlices/creatingProjectSlice";
 
 const store = configureStore({
   reducer: {
@@ -10,6 +11,7 @@ const store = configureStore({
     tabs: tabReducer,
     issues: issueReducer,
     users: userReducer,
+    createProject: createProjectReducer,
   },
 });
 

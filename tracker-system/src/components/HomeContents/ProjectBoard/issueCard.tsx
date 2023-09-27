@@ -11,7 +11,7 @@ const IssueCard = ({ issue }: { issue: Issue }) => {
         <div className="card-row issueCardHeader">
           <h5 className="card-title card-col">ID: {issue.id}</h5>
           <h6 className="card-subtitle mb-2 text-muted card-col">
-            {moment(issue.createdOn).format("DD-MM-YYYY")}
+            {issue.updatedOn ? moment(issue.updatedOn).format("DD-MM-YYYY") : moment(issue.createdOn).format("DD-MM-YYYY")}
           </h6>
         </div>
         <h4 className="card-title text-truncate">{issue.summary}</h4>

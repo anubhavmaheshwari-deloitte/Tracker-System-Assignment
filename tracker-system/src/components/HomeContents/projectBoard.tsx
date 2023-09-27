@@ -10,7 +10,7 @@ import { changeSelectedProject } from "../../redux/storeSlices/projectSlice";
 import IssueCard from "./ProjectBoard/issueCard";
 import { issueStatus } from "../../utils/constants";
 import { ClayDropDownWithItems } from "@clayui/drop-down";
-import { filterIssues } from "../../redux/storeSlices/issuesSlice";
+import { Issue, filterIssues } from "../../redux/storeSlices/issuesSlice";
 
 const ProjectBoard: React.FC = () => {
   const projects = useAppSelector((state) => state.projects);
@@ -172,6 +172,7 @@ const ProjectBoard: React.FC = () => {
                 </div>
                 {issues.filteredIssues
                   .filter((issue) => issue.status === value)
+                  .sort((a, b) => moment(a.updatedOn).isBefore(moment(b.updatedOn)) ? 1 : -1)
                   .map((issue) => (
                     <IssueCard key={issue.id} issue={issue} />
                   ))}

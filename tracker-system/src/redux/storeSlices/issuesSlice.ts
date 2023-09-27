@@ -60,7 +60,6 @@ const issuesSlice = createSlice({
         high?: boolean | undefined;
       }>,
     ) => {
-      console.log(action.payload);
       let tempIssues: Issue[] = [...state.issues];
       if (action.payload.assigneeId)
         tempIssues = tempIssues.filter(
